@@ -1,0 +1,27 @@
+[Defines]
+    INF_VERSION = 0x00010006
+    BASE_NAME = BootLoader
+    FILE_GUID = c10d9433-b0e2-49c5-95f7-fac7ed30b473
+    MODULE_TYPE = UEFI_APPLICATION
+    VERSION_STRING = 0.1
+    ENTRY_POINT = UefiMain
+
+[Sources]
+    BootLoader.c
+    Video.c
+    Motion.c
+    File.c
+
+[Packages]
+    MdePkg/MdePkg.dec
+
+[LibraryClasses]
+    UefiApplicationEntryPoint
+    UefiLib
+
+[Guids]
+    gEfiFileInfoGuid
+
+[Protocols]
+    gEfiSimpleFileSystemProtocolGuid
+    gEfiGraphicsOutputProtocolGuid
