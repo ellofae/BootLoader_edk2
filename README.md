@@ -1,2 +1,5 @@
 # BootLoader_edk2
-Simple boot loader in edk2 that displays the BMP images with a loading strip
+Simple boot loader in edk2 that displays the 32-bit BMP images with a loading strip.
+
+## Work sample 
+![main](https://i.imgur.com/FcMJGij.png)
