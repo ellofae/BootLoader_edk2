@@ -50,6 +50,7 @@ UefiMain(
     BootConfig.FrameBufferBase = VideoConfig.FrameBufferBase;
     BootConfig.FrameBufferSize = VideoConfig.FrameBufferSize;
 
+    gBS->Stall(3000000);
     DrawBackground(&BootConfig);
 
     return Status;

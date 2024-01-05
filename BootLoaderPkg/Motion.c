@@ -16,7 +16,7 @@ VideoInitialization(
         Print(L"Error while function call: Unable to aquire EFI_GRAPHICS_OUTPUT_PROTOCOL interface.\n");
         return Status;
     } 
-    Print(L"EFI_GRAPHICS_OUTPUT_PROTOCOL interface is acquired.\n");
+    // Print(L"EFI_GRAPHICS_OUTPUT_PROTOCOL interface is acquired.\n");
 
     Status = SetVideoMode(Gop);
     if(EFI_ERROR(Status))
@@ -24,7 +24,7 @@ VideoInitialization(
         Print(L"Error while function call: Unable to set video mode.\n");
         return Status;
     }
-    Print(L"Video Mode is set.\n");
+    // Print(L"Video Mode is set.\n");
 
     VideoConfig->FrameBufferBase = Gop->Mode->FrameBufferBase;
     VideoConfig->FrameBufferSize = Gop->Mode->FrameBufferSize;
@@ -63,7 +63,7 @@ DrawLogo(
         Print(L"Error while function call: Unable to read the file.\n");
         return Status;
     }
-    Print(L"The file is read.\n");
+    // Print(L"The file is read.\n");
 
     BMP_CONFIG BmpConfig;
     Status = BmpTransform(LogoAddress, &BmpConfig);
@@ -72,7 +72,7 @@ DrawLogo(
         Print(L"Error while function call: Unable to transform BMP.\n");
         return Status;
     }
-    Print(L"BMP is transformed.\n");
+    // Print(L"BMP is transformed.\n");
 
     INTN X = (Hor - BmpConfig.Width) / 2;
     UINTN Y = (Ver - BmpConfig.Height) / 2;
