@@ -2,8 +2,13 @@
 #include <Library/UefiBootServicesTableLib.h>
 #include <Library/UefiLib.h>
 
-#include "Elf.h"
 #include "Motion.h"
+
+EFI_STATUS
+EFIAPI
+ByeBootServices(
+    IN EFI_HANDLE ImageHandle
+);
 
 EFI_STATUS
 EFIAPI
@@ -28,6 +33,24 @@ UefiMain(
         Print(L"Error Info: Status code - %d.\n", Status);
         return Status;
     }
+
+    EFI_PHYSICAL_ADDRESS KernelEntryPoint;
+    Status = Relocate(
+        ImageHandle, 
+        L"\\Kernel.elf", 
+        &KernelEntryPoint
+    );
+    if(EFI_ERROR(Status))
+    {
+        Print(L"Error Info: Status code - %d.\n", Status);
+        return Status;
+    }
+
+    BOOT_CONFIG BootConfig;
+    BootConfig.FrameBufferBase = VideoConfig.FrameBufferBase;
+    BootConfig.FrameBufferSize = VideoConfig.FrameBufferSize;
+
+    DrawBackground(&BootConfig);
 
     return Status;
 }

@@ -6,6 +6,12 @@
 typedef struct
 {
     EFI_PHYSICAL_ADDRESS       FrameBufferBase;
+    UINT64                     FrameBufferSize;
+} BOOT_CONFIG;
+
+typedef struct
+{
+    EFI_PHYSICAL_ADDRESS       FrameBufferBase;
     UINTN                      FrameBufferSize;
     UINT32                     HorizontalResolution;
     UINT32                     VerticalResolution;

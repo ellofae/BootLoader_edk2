@@ -11,6 +11,7 @@
     Video.c
     Motion.c
     File.c
+    Elf.c
 
 [Packages]
     MdePkg/MdePkg.dec
