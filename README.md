@@ -3,3 +3,6 @@ Simple boot loader in edk2 that displays the 32-bit BMP images with a loading st
 
 ## Work sample 
 ![main](https://i.imgur.com/FcMJGij.png)
+
+## BMP format
+![main](https://i.imgur.com/Pdxcoe1.png)
