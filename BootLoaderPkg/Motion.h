@@ -24,8 +24,8 @@ DrawStep(
     IN UINTN Step
 );
 
-UINT64 
-EFIAPI
-DrawBackground(
-    BOOT_CONFIG *BootConfig
-);
+// UINT64 
+// EFIAPI
+// DrawBackground(
+//     BOOT_CONFIG *BootConfig
+// );

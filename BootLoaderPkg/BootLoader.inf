@@ -12,6 +12,9 @@
     Motion.c
     File.c
     Elf.c
+    Kernel/Kernel.c
+    Kernel/Graphics.c
+    Kernel/Shell.c
 
 [Packages]
     MdePkg/MdePkg.dec

@@ -1,13 +1,16 @@
 #include <Library/BaseMemoryLib.h>
 #include <Protocol/GraphicsOutput.h>
 
+#ifndef _VIDEO_H_
+#define _VIDEO_H_
+
 #include "File.h"
 
-typedef struct
-{
-    EFI_PHYSICAL_ADDRESS       FrameBufferBase;
-    UINT64                     FrameBufferSize;
-} BOOT_CONFIG;
+// typedef struct
+// {
+//     EFI_PHYSICAL_ADDRESS       FrameBufferBase;
+//     UINT64                     FrameBufferSize;
+// } BOOT_CONFIG;
 
 typedef struct
 {
@@ -17,6 +20,11 @@ typedef struct
     UINT32                     VerticalResolution;
     UINT32                     PixelsPerScanLine;
 } VIDEO_CONFIG;
+
+typedef struct
+{
+    VIDEO_CONFIG VideoConfig;
+} BOOT_CONFIG;
 
 typedef struct
 {
@@ -85,3 +93,18 @@ DrawBmp(
     IN UINTN X,
     IN UINTN Y
 );
+
+// int DrawPixel(
+//     UINT32 *VideoHandle, 
+//     UINT32 Color, 
+//     UINTN X, 
+//     UINTN Y
+// );
+
+// UINT64 
+// EFIAPI
+// DrawBackground(
+//     BOOT_CONFIG *BootConfig
+// );
+
+#endif

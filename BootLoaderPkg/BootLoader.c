@@ -3,6 +3,7 @@
 #include <Library/UefiLib.h>
 
 #include "Motion.h"
+#include "Kernel/Kernel.h"
 
 EFI_STATUS
 EFIAPI
@@ -46,12 +47,20 @@ UefiMain(
         return Status;
     }
 
-    BOOT_CONFIG BootConfig;
-    BootConfig.FrameBufferBase = VideoConfig.FrameBufferBase;
-    BootConfig.FrameBufferSize = VideoConfig.FrameBufferSize;
+    // Simple background drawing:
+    // BOOT_CONFIG BootConfig;
+    // BootConfig.FrameBufferBase = VideoConfig.FrameBufferBase;
+    // BootConfig.FrameBufferSize = VideoConfig.FrameBufferSize;
 
-    gBS->Stall(3000000);
-    DrawBackground(&BootConfig);
+    // gBS->Stall(3000000);
+    // DrawBackground(&BootConfig);
+
+    BOOT_CONFIG BootConfig = {
+        .VideoConfig = VideoConfig
+    };
+
+    gBS->Stall(1500000);
+    KernelStart(&BootConfig);
 
     return Status;
 }
